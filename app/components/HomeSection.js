@@ -1,42 +1,11 @@
-"use client"
-
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
-
-const Navbar = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const toggleMenu = () => setMenuOpen(!menuOpen);
-
-  return (
-    <nav className="fixed top-0 left-0 w-full bg-white shadow-md z-50">
-      <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-        <h1 className="text-2xl font-bold text-purple-700">Mega Laundry</h1>
-        <div className="hidden md:flex space-x-8">
-          <a href="#home" className="hover:text-purple-700">Home</a>
-          <a href="#about" className="hover:text-purple-700">About</a>
-          <a href="#services" className="hover:text-purple-700">Services</a>
-          <a href="#pricing" className="hover:text-purple-700">Pricing</a>
-        </div>
-        <button className="md:hidden" onClick={toggleMenu}>☰</button>
-      </div>
-      {menuOpen && (
-        <div className="fixed top-0 right-0 h-full w-4/5 bg-purple-700 text-white flex flex-col p-6 transition-transform">
-          <button className="self-end text-2xl" onClick={toggleMenu}>✖</button>
-          <a href="#home" className="py-3 text-lg" onClick={toggleMenu}>Home</a>
-          <a href="#about" className="py-3 text-lg" onClick={toggleMenu}>About</a>
-          <a href="#services" className="py-3 text-lg" onClick={toggleMenu}>Services</a>
-          <a href="#pricing" className="py-3 text-lg" onClick={toggleMenu}>Pricing</a>
-        </div>
-      )}
-    </nav>
-  );
-};
 
 const HomeSection = () => {
   return (
     <section id="home" className="min-h-screen flex flex-col md:flex-row">
-      {/* Left Section - Text & Gradient */}
-      <div className="md:w-1/2 w-full flex flex-col justify-center px-10 bg-gradient-to-r from-purple-700 to-white text-white">
+      {/* Left Section - Text with Custom Background Color */}
+      <div className="md:w-1/2 w-full flex flex-col justify-center px-10" style={{ backgroundColor: "#996558", color: "white" }}>
         <h1 className="text-7xl font-bold">Premium Laundry Services</h1>
         <p className="mt-4 text-2xl">
           Affordable, fast, and reliable laundry service at your convenience.
@@ -63,4 +32,4 @@ const HomeSection = () => {
   );
 };
 
-export { Navbar, HomeSection };
+export default HomeSection;
