@@ -1,11 +1,8 @@
-"use client"
-
-"use client"; // Ensures localStorage works on the client side
+"use client";
 
 import React, { useState, useEffect } from "react";
 
 const Pricing = () => {
-  // State for user inputs
   const [userName, setUserName] = useState("");
   const [whatsappNumber, setWhatsappNumber] = useState("");
   const [pickupLocation, setPickupLocation] = useState("");
@@ -71,23 +68,14 @@ const Pricing = () => {
 
     const orderDetails = `🧺 *Laundry Order Summary* 🧺\n\n👤 Name: ${userName}\n📍 Pickup Location: ${pickupLocation}\n📱 WhatsApp: ${whatsappNumber}\n\n🛒 Selected Services:\n${selectedServices}\n\n💰 *Total: Ksh. ${totalAmount}*\n\n✅ Proceeding to M-Pesa Checkout...`;
 
-    // Open WhatsApp chat with order details
-    const whatsappURL = `https://wa.me/254705864283?text=${encodeURIComponent(orderDetails)}`;
-    window.open(whatsappURL, "_blank");
+    // Open WhatsApp with pre-filled message to automatically send
+    const recipient = "254705864283"; // The business WhatsApp number
+    const whatsappURL = `https://api.whatsapp.com/send?phone=${recipient}&text=${encodeURIComponent(orderDetails)}`;
+    
+    window.location.href = whatsappURL; // Redirect to WhatsApp to send the message
 
     // Clear localStorage after checkout
     localStorage.clear();
-
-    alert("Order details sent via WhatsApp. Proceeding to M-Pesa...");
-    
-    // Trigger M-Pesa payment (Assume a function that handles M-Pesa API call)
-    initiateMpesaPayment(whatsappNumber, totalAmount);
-  };
-
-  // Simulated M-Pesa Payment API function
-  const initiateMpesaPayment = (phoneNumber, amount) => {
-    console.log(`M-Pesa Payment initiated for ${phoneNumber}, Amount: Ksh. ${amount}`);
-    alert("M-Pesa Payment triggered. Confirm on your phone.");
   };
 
   return (
@@ -123,9 +111,9 @@ const Pricing = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
         {services.map((service, index) => (
           <div key={index} className="p-6 bg-white shadow-lg rounded-lg">
-            <h3 className="text-xl text-[#33252c] font-semibold">{service.name}</h3>
+            <h3 className="text-xl font-semibold">{service.name}</h3>
             <p className="text-gray-500">Ksh. {service.price}</p>
-            <label className="text-[#33252c] block mt-2">{service.label}</label>
+            <label className="block mt-2">{service.label}</label>
             <input
               type="number"
               min="0"
@@ -147,7 +135,7 @@ const Pricing = () => {
       <h3 className="text-xl font-bold text-[#33252c] mt-6">Total: Ksh. {totalAmount}</h3>
       <button
         onClick={handleCheckout}
-        className="mt-4 bg-[#33252c] text-white px-6 py-2 rounded-lg hover:bg-purple-900 transition"
+        className="mt-4 bg-[#3ea3a8] text-white px-6 py-2 rounded-lg hover:bg-[#2c7d7e] transition"
       >
         Continue to Checkout
       </button>

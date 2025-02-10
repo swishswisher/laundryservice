@@ -34,8 +34,8 @@ const Footer = () => {
         {/* Contact Info (Far Right) */}
         <div>
           <h3 className="text-xl font-semibold">Contact Us</h3>
-          <p className="mt-3">📍 Nairobi, Kenya</p>
-          <p>📞 +254 700 123 456</p>
+          <p className="mt-3">📍 Kakamega, Kenya</p>
+          <p>📞 +254 705 864 283</p>
           <p>📧 support@megalaundry.com</p>
 
           {/* Social Media Links */}
