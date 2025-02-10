@@ -1,8 +1,18 @@
+"use client";
+
 import React from "react";
 
 const Footer = () => {
+  // Function to scroll smoothly to the correct section
+  const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   return (
-    <footer className="bg-purple-800 text-white py-10 mt-10">
+    <footer className="bg-[#33252c] text-white py-10 mt-10">
       <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
         {/* Company Info */}
         <div>
@@ -10,18 +20,18 @@ const Footer = () => {
           <p className="mt-3 text-gray-300">Your trusted partner in professional laundry services.</p>
         </div>
 
-        {/* Quick Links */}
+        {/* Quick Links with Smooth Scrolling */}
         <div>
           <h3 className="text-xl font-semibold">Quick Links</h3>
           <ul className="mt-3 space-y-2">
-            <li><a href="#" className="hover:underline">Home</a></li>
-            <li><a href="#" className="hover:underline">Why Choose Us</a></li>
-            <li><a href="#" className="hover:underline">Our Services</a></li>
-            <li><a href="#" className="hover:underline">Pricing</a></li>
+            <li><button onClick={() => scrollToSection("home")} className="hover:text-[#e2ba2c]">Home</button></li>
+            <li><button onClick={() => scrollToSection("about")} className="hover:text-[#e2ba2c]">About</button></li>
+            <li><button onClick={() => scrollToSection("services")} className="hover:text-[#e2ba2c]">Our Services</button></li>
+            <li><button onClick={() => scrollToSection("pricing")} className="hover:text-[#e2ba2c]">Pricing</button></li>
           </ul>
         </div>
 
-        {/* Contact Info */}
+        {/* Contact Info (Far Right) */}
         <div>
           <h3 className="text-xl font-semibold">Contact Us</h3>
           <p className="mt-3">📍 Nairobi, Kenya</p>
@@ -30,9 +40,9 @@ const Footer = () => {
 
           {/* Social Media Links */}
           <div className="flex gap-4 mt-4">
-            <a href="#" className="hover:text-gray-300">🌍 Website</a>
-            <a href="#" className="hover:text-gray-300">📘 Facebook</a>
-            <a href="#" className="hover:text-gray-300">📸 Instagram</a>
+            <a href="#" className="hover:text-[#e2ba2c]">🌍 Website</a>
+            <a href="#" className="hover:text-[#e2ba2c]">📘 Facebook</a>
+            <a href="#" className="hover:text-[#e2ba2c]">📸 Instagram</a>
           </div>
         </div>
       </div>

@@ -92,7 +92,7 @@ const Pricing = () => {
 
   return (
     <section className="p-10 bg-gray-100 text-center">
-      <h2 className="text-3xl font-bold text-purple-700">Pricing</h2>
+      <h2 className="text-3xl font-bold text-[#33252c]">Pricing</h2>
 
       {/* User Input Fields */}
       <div className="max-w-4xl mx-auto mt-6">
@@ -123,9 +123,9 @@ const Pricing = () => {
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
         {services.map((service, index) => (
           <div key={index} className="p-6 bg-white shadow-lg rounded-lg">
-            <h3 className="text-xl font-semibold">{service.name}</h3>
+            <h3 className="text-xl text-[#33252c] font-semibold">{service.name}</h3>
             <p className="text-gray-500">Ksh. {service.price}</p>
-            <label className="block mt-2">{service.label}</label>
+            <label className="text-[#33252c] block mt-2">{service.label}</label>
             <input
               type="number"
               min="0"
@@ -144,10 +144,10 @@ const Pricing = () => {
       </div>
 
       {/* Total & Checkout */}
-      <h3 className="text-xl font-bold text-purple-700 mt-6">Total: Ksh. {totalAmount}</h3>
+      <h3 className="text-xl font-bold text-[#33252c] mt-6">Total: Ksh. {totalAmount}</h3>
       <button
         onClick={handleCheckout}
-        className="mt-4 bg-purple-700 text-white px-6 py-2 rounded-lg hover:bg-purple-900 transition"
+        className="mt-4 bg-[#33252c] text-white px-6 py-2 rounded-lg hover:bg-purple-900 transition"
       >
         Continue to Checkout
       </button>
