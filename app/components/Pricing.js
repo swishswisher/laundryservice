@@ -69,7 +69,7 @@ const Pricing = () => {
     const orderDetails = `🧺 *Laundry Order Summary* 🧺\n\n👤 Name: ${userName}\n📍 Pickup Location: ${pickupLocation}\n📱 WhatsApp: ${whatsappNumber}\n\n🛒 Selected Services:\n${selectedServices}\n\n💰 *Total: Ksh. ${totalAmount}*\n\n✅ Proceeding to M-Pesa Checkout...`;
 
     // Open WhatsApp with pre-filled message to automatically send
-    const recipient = "254705864283"; // The business WhatsApp number
+    const recipient = "254799156556"; // The business WhatsApp number
     const whatsappURL = `https://api.whatsapp.com/send?phone=${recipient}&text=${encodeURIComponent(orderDetails)}`;
     
     window.location.href = whatsappURL; // Redirect to WhatsApp to send the message
